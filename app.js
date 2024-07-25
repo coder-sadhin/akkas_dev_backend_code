@@ -21,6 +21,14 @@ app.use(cors({
   credentials: true,
 }))
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // Set your frontend's origin here
+  res.header('Access-Control-Allow-Credentials', true); // Allow credentials
+  // Other CORS headers (methods, headers, etc.) can be set here too
+  next();
+});
+
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
