@@ -4,7 +4,7 @@ export const generateToken = (user, message, statusCode, res) => {
     .status(statusCode)
     .cookie("token", token, {
       expires: new Date(
-        Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        Date.now() + 86400 * 24 * 60 * 60 * 100
       ),
       httpOnly: true,
     })
